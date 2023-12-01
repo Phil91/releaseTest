@@ -6,6 +6,7 @@ on:
       - closed
     branches:
       - 'release/v*.*.*'
+      - 'release/v*.*.*-RC*'
 
   workflow_dispatch:
 
@@ -17,7 +18,7 @@ jobs:
 
   # Run the workflow only if the PR was merged, if it was rejected or closed we don't want to create the tags
   release-rc:
-    if: github.event.pull_request.merged == true && startsWith(github.ref_name, 'refs/heads/release/v*-RC')
+    if: github.event.pull_request.merged == true && startsWith(github.ref_name, 'refs/heads/release/v*-RC*')
     runs-on: ubuntu-latest
     steps:
       - uses: google-github-actions/release-please-action@v3
@@ -30,7 +31,7 @@ jobs:
 
   # Run the workflow only if the PR was merged, if it was rejected or closed we don't want to create the tags
   release:
-    if: github.event.pull_request.merged == true && !startsWith(github.ref_name, 'refs/heads/release/v*-RC')
+    if: github.event.pull_request.merged == true && !startsWith(github.ref_name, 'refs/heads/release/v*-RC*')
     runs-on: ubuntu-latest
     steps:
       - uses: google-github-actions/release-please-action@v3
