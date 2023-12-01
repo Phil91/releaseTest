@@ -51,7 +51,7 @@ jobs:
           git tag -d v${{ steps.release.outputs.major }}.${{ steps.release.outputs.minor }} || true
           git push origin :v${{ steps.release.outputs.major }} || true
           git push origin :v${{ steps.release.outputs.major }}.${{ steps.release.outputs.minor }} || true
-          git tag -a v${{ steps.release.outputs.major }} -m "Version v${{ steps.release.outputs.major }}: Catena-X Policy Hub"
-          git tag -a v${{ steps.release.outputs.major }}.${{ steps.release.outputs.minor }} -m "Version v${{ steps.release.outputs.major }}.${{ steps.release.outputs.minor }}: Catena-X Policy Hub"
+          git tag -a v${{ steps.release.outputs.major }} -m "Version v${{ steps.release.outputs.major }}: Test"
+          git tag -a v${{ steps.release.outputs.major }}.${{ steps.release.outputs.minor }} -m "Version v${{ steps.release.outputs.major }}.${{ steps.release.outputs.minor }}: Test"
           git push origin v${{ steps.release.outputs.major }}
           git push origin v${{ steps.release.outputs.major }}.${{ steps.release.outputs.minor }}
